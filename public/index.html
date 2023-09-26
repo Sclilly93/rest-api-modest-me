@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav>
+    <img src="https://modestm.com/wp-content/uploads/2023/08/Asset-2-8-1-300x300.png">
+    <button>Menu</button>
+    <button>Search</button>
+    <a href="/sign-in">Sign In</a>
+</nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modestm Mens Suits</title>
+</head>
+<body>
+    <script>
+        const heading = document.createElement('h1');
+        heading.innerText = 'Modest Mens Suits';
+        document.body.append(heading);
+        const todoList = document.createElement('ul');
+        document.body.append(todoList);
+
+        const createTodo = (num) => {
+            const todoItem = document.createElement('li');
+            todoItem.innerText = `Item #${num}`;
+            todoList.append(todoItem);
+        };
+
+        for (let i = 0; i < 5; i += 1) {
+            createTodo(i + 1);
+        }
+    </script>
+</body>
+</html>
