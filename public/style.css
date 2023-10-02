@@ -1,0 +1,28 @@
+html {
+    height: 100%;
+    width: 100%;
+  }
+  body {
+      font-family: Arial, sans-serif;
+  }
+  
+  .container {
+      display: flex;
+  }
+  
+  .mainContent {
+      flex: 2;
+      /* Add your own styles for main content area */
+  }
+  
+  .sidebar {
+      flex: 1;
+      background-color: #f0f0f0;
+      padding: 10px;
+      display: none; /* Initially hide the sidebar */
+  }
+  
+  #filterButton {
+      margin: 10px;
+  }
+  

@@ -3,15 +3,27 @@
 <nav>
     <img src="https://modestm.com/wp-content/uploads/2023/08/Asset-2-8-1-300x300.png">
     <button>Menu</button>
-    <button>Search</button>
+    <button>Search for Suits</button>
     <a href="/sign-in">Sign In</a>
 </nav>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modestm Mens Suits</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- If there is a CSS file for styling -->
 </head>
 <body>
+    
+    <h1>Men's Suits</h1>
+    <!-- Event-driven programming -->
+    <!-- This is a button that users can click to add a suit item to the list -->
+    <button class="add-to-list-button">Add Suit</button>
+
+    <ul class="suit-list">
+        <!-- List of suits will be dynamically populated by JavaScript -->
+    </ul>
+
+    <script src="js/main.js"></script> <!-- Link to your JavaScript file -->
     <script>
         const heading = document.createElement('h1');
         heading.innerText = 'Modest Mens Suits';
@@ -21,7 +33,7 @@
 
         const createTodo = (num) => {
             const todoItem = document.createElement('li');
-            todoItem.innerText = `Item #${num}`;
+            todoItem.innerText = `Suit #${num}`;
             todoList.append(todoItem);
         };
 
@@ -29,5 +41,17 @@
             createTodo(i + 1);
         }
     </script>
+    <link rel="stylesheet" id="ivory-ajax-search-styles-css" href="https://modestm.com/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css?ver=5.5.2" media="all">
 </body>
+    <div class="container">
+        <button id="filterButton">Filter Suits</button>
+        <div class="mainContent">
+            <!-- clothing items go here -->
+        </div>
+        <div class="sidebar">
+            <!-- Filter options go here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
 </html>
+

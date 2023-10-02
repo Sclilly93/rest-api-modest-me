@@ -2,9 +2,9 @@
     "name": "rest-api-modestm",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
-        "devStart": "nodemon script.js"
+        "start": "nodemon script.js"
     },
     "keywords": [],
     "author": "",
