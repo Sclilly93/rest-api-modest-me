@@ -20,13 +20,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-// Import user input routes from a separate file in "routes" directory.
-const userRoutes = require('./routes/userRoutes'); 
+// Import input routes from a separate file in "routes" directory.
+const userRoutes = require('./routes/userRoutes');
+const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
+const suitRoutes = require('./routes/suitRoutes');
 
-// Configure the web application to utilize the specified routes when processing requests directed to "/user".
+// Configure the web application to utilize the specified routes when processing requests directed to user or suit routes.
 app.use('/user', userRoutes); 
 app.use('/suits', suitRoutes);
-
+app.use('/suits', suitOptionsRoutes);
 
 
 

@@ -1,3 +1,12 @@
+/*
+ * Import the 'express' module, web framework for Node.js
+ * Create a new router instance, group related routes and middleware together
+ * Imports the UserMeasurement schema from the models directory
+ */
+const express = require('express');
+const router = express.Router();
+// const recommendationRoutes = require('../utils/recommendationUtils'); // Require the schema
+
 // Handles incoming data in your application routes, for collecting user purchase data
 
 const purchaseData = [

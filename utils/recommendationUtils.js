@@ -11,9 +11,7 @@ function calculateUserMeans(userItemMatrix) {
     });
   
     return userMeans;
-  }
-
-
+  };
 
 
 // Function to create a user-item matrix from purchase data.
