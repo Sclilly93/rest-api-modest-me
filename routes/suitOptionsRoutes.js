@@ -67,7 +67,7 @@ const newSuitOption11 = new SuitOption({
   });   
   
 // Save the new SuitOption document to the MongoDB database
-newSuitOption.save((err, result) => {
+newSuitOption1.save((err, result) => {
   // Check if there was an error during the save operation
   if (err) {
     // If an error occurred, log it to the console

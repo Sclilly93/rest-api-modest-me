@@ -3,6 +3,7 @@ const router = express.Router();
 const Suit = require('../models/suit');
 
 // Add routes and middleware related to suits here
+const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -20,7 +21,7 @@ router.post('/suits', (req, res) => {
 
 
 // Route for viewing available suit models in GET request
-const Suit = require('../models/suit');
+const app = express();
 
 app.get('/suits', (req, res) => {
   Suit.find({}, (err, suits) => {

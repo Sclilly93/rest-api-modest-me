@@ -10,4 +10,4 @@ const isAuthenticated = (req, res, next) => {
   };
   
   // Export the is Authenticated middleware
-  module.exports = isAuthenticated;
+  export default isAuthenticated;
