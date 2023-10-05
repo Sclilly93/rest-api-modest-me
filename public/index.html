@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#">
 <nav>
-    <img src="https://modestm.com/wp-content/uploads/2023/08/Asset-2-8-1-300x300.png">
+    <img src="https://modestm.com/wp-content/uploads/2023/10/Frame-1-3.svg">
     <button>Menu</button>
     <button>Search for Suits</button>
     <a href="/sign-in">Sign In</a>
@@ -9,38 +9,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modestm Mens Suits</title>
+    <link rel="profile" href="https://gmpg.org/xfn/11"> 
+	 <script>
+(()=>{var e={};e.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),function({ampUrl:n,isCustomizePreview:t,isAmpDevMode:r,noampQueryVarName:o,noampQueryVarValue:s,disabledStorageKey:i,mobileUserAgents:a,regexRegex:c}){if("undefined"==typeof sessionStorage)return;const d=new RegExp(c);if(!a.some((e=>{const n=e.match(d);return!(!n||!new RegExp(n[1],n[2]).test(navigator.userAgent))||navigator.userAgent.includes(e)})))return;e.g.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("amp-mobile-version-switcher");if(!e)return;e.hidden=!1;const n=e.querySelector("a[href]");n&&n.addEventListener("click",(()=>{sessionStorage.removeItem(i)}))}));const g=r&&["paired-browsing-non-amp","paired-browsing-amp"].includes(window.name);if(sessionStorage.getItem(i)||t||g)return;const u=new URL(location.href),m=new URL(n);m.hash=u.hash,u.searchParams.has(o)&&s===u.searchParams.get(o)?sessionStorage.setItem(i,"1"):m.href!==u.href&&(window.stop(),location.replace(m.href))}({"ampUrl":"https:\/\/modestm.com\/mens\/?v=e748b7c8fd06&amp=1","noampQueryVarName":"noamp","noampQueryVarValue":"mobile","disabledStorageKey":"amp_mobile_redirect_disabled","mobileUserAgents":["Mobile","Android","Silk\/","Kindle","BlackBerry","Opera Mini","Opera Mobi"],"regexRegex":"^\\/((?:.|\n)+)\\/([i]*)$","isCustomizePreview":false,"isAmpDevMode":true})})();
+</script>
+    <title>Mens Collection - Modest Me</title>
+    <title>Permanent Filter</title>
+    <style>
+        .filter-container {
+            position: left;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            background-color: #b99c82;
+            overflow-y: auto;
+            padding: 20px;
+        }
+    </style>
     <link rel="stylesheet" href="css/style.css"> <!-- If there is a CSS file for styling -->
 </head>
 <body>
-    
-    <h1>Men's Suits</h1>
+   
+    <div class="filter-container">
+        <!-- Your filter content goes here -->
+        <h2>Suit Options</h2>
+        <label><input type="checkbox"> Classic</label><br>
+        <label><input type="checkbox"> Wool Blend 30</label><br>
+        <label><input type="checkbox"> Colors</label><br>
+        <label><input type="checkbox"> Sizes</label><br>
+        <!-- Add more filter options as needed -->
+    </div>
+    <h1>Welcome to our Men's Collection!</h1>
+
     <!-- Event-driven programming -->
-    <!-- This is a button that users can click to add a suit item to the list -->
-    <button class="add-to-list-button">Add Suit</button>
+    <!-- This is a button that users can submit their email for data logging -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <button id="submit">Submit</button>
+
+    <script src="js/main.js"></script>
+
+ 
+  
 
     <ul class="suit-list">
         <!-- List of suits will be dynamically populated by JavaScript -->
     </ul>
 
     <script src="js/main.js"></script> <!-- Link to your JavaScript file -->
-    <script>
-        const heading = document.createElement('h1');
-        heading.innerText = 'Modest Mens Suits';
-        document.body.append(heading);
-        const todoList = document.createElement('ul');
-        document.body.append(todoList);
-
-        const createTodo = (num) => {
-            const todoItem = document.createElement('li');
-            todoItem.innerText = `Suit #${num}`;
-            todoList.append(todoItem);
-        };
-
-        for (let i = 0; i < 5; i += 1) {
-            createTodo(i + 1);
-        }
-    </script>
+    
     <link rel="stylesheet" id="ivory-ajax-search-styles-css" href="https://modestm.com/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css?ver=5.5.2" media="all">
 </body>
     <div class="container">

@@ -14,7 +14,16 @@ const app = express();
 // Connect our web application to a MongoDB local database located on our own computer
 mongoose.connect('mongodb://localhost:27017/clothing_store', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Instruct our web application to utilize "body-parser" for processing data transmitted in varying formats including URL-encoded and JSON.
+// Middleware for parsing JSON
+app.use(express.json());
+
+// Serve static files from the public folder
+app.use(express.static('public'));
+
+// Define routes
+app.use('/api', require('./routes/apiRoutes'));
+
+// Use "body-parser" for processing data transmitted in varying formats including URL-encoded and JSON.
 // This sets up our middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -22,19 +31,18 @@ app.use(bodyParser.json());
 
 // Import input routes from a separate file in "routes" directory.
 const userRoutes = require('./routes/userRoutes');
-const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
+// const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
 const suitRoutes = require('./routes/suitRoutes');
 
 // Configure the web application to utilize the specified routes when processing requests directed to user or suit routes.
 app.use('/user', userRoutes); 
 app.use('/suits', suitRoutes);
-app.use('/suits', suitOptionsRoutes);
+// app.use('/suits', suitOptionsRoutes);
 
 
 
 //  bodyParserMiddleware.js code setup for import and use
 const parseRequestBody = require('./middleware/bodyParserMiddleware'); // Adjust the path as needed
-
 
 
 // Use the bodyParser middleware for parsing incoming requests
@@ -43,9 +51,11 @@ app.use(bodyParser.json());
 
 // Other middleware and routes...
 
+
+
 // // Start the web server and stand by to receive incoming requests on port 3000.
 app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+  console.log('Node API app is running on http://localhost:3000');
 });
 
 
