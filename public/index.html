@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
     <link rel="profile" href="https://gmpg.org/xfn/11"> 
 	 <script>
 (()=>{var e={};e.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),function({ampUrl:n,isCustomizePreview:t,isAmpDevMode:r,noampQueryVarName:o,noampQueryVarValue:s,disabledStorageKey:i,mobileUserAgents:a,regexRegex:c}){if("undefined"==typeof sessionStorage)return;const d=new RegExp(c);if(!a.some((e=>{const n=e.match(d);return!(!n||!new RegExp(n[1],n[2]).test(navigator.userAgent))||navigator.userAgent.includes(e)})))return;e.g.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("amp-mobile-version-switcher");if(!e)return;e.hidden=!1;const n=e.querySelector("a[href]");n&&n.addEventListener("click",(()=>{sessionStorage.removeItem(i)}))}));const g=r&&["paired-browsing-non-amp","paired-browsing-amp"].includes(window.name);if(sessionStorage.getItem(i)||t||g)return;const u=new URL(location.href),m=new URL(n);m.hash=u.hash,u.searchParams.has(o)&&s===u.searchParams.get(o)?sessionStorage.setItem(i,"1"):m.href!==u.href&&(window.stop(),location.replace(m.href))}({"ampUrl":"https:\/\/modestm.com\/mens\/?v=e748b7c8fd06&amp=1","noampQueryVarName":"noamp","noampQueryVarValue":"mobile","disabledStorageKey":"amp_mobile_redirect_disabled","mobileUserAgents":["Mobile","Android","Silk\/","Kindle","BlackBerry","Opera Mini","Opera Mobi"],"regexRegex":"^\\/((?:.|\n)+)\\/([i]*)$","isCustomizePreview":false,"isAmpDevMode":true})})();
@@ -33,23 +34,35 @@
    
     <div class="filter-container">
         <!-- Your filter content goes here -->
-        <h2>Suit Options</h2>
+        <h1>Suit Options</h1>
         <label><input type="checkbox"> Classic</label><br>
         <label><input type="checkbox"> Wool Blend 30</label><br>
         <label><input type="checkbox"> Colors</label><br>
         <label><input type="checkbox"> Sizes</label><br>
         <!-- Add more filter options as needed -->
     </div>
-    <h1>Welcome to our Men's Collection!</h1>
 
-    <!-- Event-driven programming -->
-    <!-- This is a button that users can submit their email for data logging -->
-    <label for="email">Email:</label>
-    <input type="email" id="email" required>
+<!-- This is a button that users can submit their email for data logging -->
+
+    
+<!-- Event-driven programming -->
+    <div><script src="js/main.js"></script>
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br>
+    </div>
+
+    <div><label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+    </div>
+
+    <div><label for="product">Product:</label>
+    <input type="text" id="product" required><br>
+    </div>
+
+    <div><button id="submit">Make Purchase</button>
     <button id="submit">Submit</button>
 
-    <script src="js/main.js"></script>
-
+    <script src="js/main.js"></script></div>
  
   
 
@@ -60,7 +73,7 @@
     <script src="js/main.js"></script> <!-- Link to your JavaScript file -->
     
     <link rel="stylesheet" id="ivory-ajax-search-styles-css" href="https://modestm.com/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css?ver=5.5.2" media="all">
-</body>
+
     <div class="container">
         <button id="filterButton">Filter Suits</button>
         <div class="mainContent">
@@ -71,5 +84,481 @@
         </div>
     </div>
     <script src="script.js"></script>
-</html>
 
+
+<h2 id="title" class="text-center">Welcome to our Men's Collection!</h2>
+<p id="description" class="description text-center">
+    We'll need some measurements to ensure you custom suit fits exceptionally.  Once you've found a suit fabic that pleases you, take some time to fill out your measurement order below. 
+    Please take some time to tell us what you value about Modest Me and how this site can accomodate you further in future updates(optional fields)! 
+    </p>
+
+
+
+<form id="survey-form">
+            <div class="form-group">
+              <label id="name-label" for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-control"
+                placeholder="Enter your name"
+                required
+                />
+            </div>
+            <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number"
+                 >Neck Size<span class="clue">(inches.inches)</span></label>
+          <input
+            type="number"
+            name="neck"
+            id="number"
+            min="10"
+            max="99"
+            class="form-control"
+            placeholder="Enter your Size"
+          />
+        </div>
+        <div class="form-group">
+            <label id="number-label" for="number"
+                   >Full Chest<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="chest"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Full Shoulder Width<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="shoulder"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Right Sleeve<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="right-sleeve"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Left Sleeve<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="left-sleeve"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Bicep<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="Neck"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Wrist Size<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="wrist"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Waist/Stomach Size<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="waist"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Hip Size<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="hip"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Front Jackect Length<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="front-jacket"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Front Chest Width<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="front-chest"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Back Width<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="back-width"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Shoulder Width(right)<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="shoulder-width-right"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Shoulder Width(left)<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="shoulder-width-left"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Full Back Length<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="full-back-length"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Half Back Length<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="half-back-length"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Trouser Waist<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="trouser-waist"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Trouser Outseam<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="trouser-outseam"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Trouser Inseam<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="trouser-inseam"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Crotch<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="crotch"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Thigh<span class="clue">(inches.inches)</span></label>
+            <input
+              type="thigh"
+              name="crotch"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Knee<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="knee"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Right Full Sleeve<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="right-full-sleeve"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+          <div class="form-group">
+            <label id="number-label" for="number"
+                   >Left Full Sleeve<span class="clue">(inches.inches)</span></label>
+            <input
+              type="number"
+              name="left-full-sleeve"
+              id="number"
+              min="10"
+              max="99"
+              class="form-control"
+              placeholder="Enter your Size"
+            />
+          </div>
+        <div class="form-group">
+          <p>Which option best describes your needs for a custom suit?</p>
+          <select id="dropdown" name="role" class="form-control" required>
+            <option disabled selected value>Select your needs</option>
+            <option value="student">Wedding</option>
+            <option value="job">Bussiness</option>
+            <option value="fashion">Fashion</option>
+            <option value="preferNo">Prefer not to say</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>Would you recommend Modest Me?</p>
+          <label>
+            <input
+              name="user-recommend"
+              value="absolutely"
+              type="radio"
+              class="input-radio"
+              checked
+            />Absolutely</label
+          >
+          <label>
+            <input
+              name="user-recommend"
+              value="maybe"
+              type="radio"
+              class="input-radio"
+            />Maybe</label
+          >
+
+          <label
+            ><input
+              name="user-recommend"
+              value="not-currently"
+              type="radio"
+              class="input-radio"
+            />Not currently</label
+          >
+        </div>
+
+        <div class="form-group">
+          <p>What is your favorite feature or highlight of Modest Me?</p>
+          <select id="favorite-feature" name="favoriteFeature" class="form-control" required>
+            <option disabled selected value>Select an option</option>
+            <option value="designs">Designs</option>
+            <option value="featured-clothes">Featured Clothes</option>
+            <option value="diversity">Diversity</option>
+            <option value="new-collections">New Collections</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>
+            What future updates intrest you?
+            <span class="clue">(Check any that apply)</span>
+          </p>
+
+          <label
+            ><input
+              name="prefer"
+              value="community-projects"
+              type="checkbox"
+              class="input-checkbox"
+            />Upcoming Categories</label
+          >
+          <label>
+            <input
+              name="prefer"
+              value="upcoming-reviews"
+              type="checkbox"
+              class="input-checkbox"
+            />Customer Reviews</label>
+          <label
+            ><input
+              name="prefer"
+              value="concept-art"
+              type="checkbox"
+              class="input-checkbox"
+            />Unisex Clothing</label>
+          <label
+            ><input
+              name="prefer"
+              value="challenges"
+              type="checkbox"
+              class="input-checkbox"
+            />Measurements Sidebar</label
+            >
+          <label
+            ><input
+              name="prefer"
+              value="video-content"
+              type="checkbox"
+              class="input-checkbox"
+            />Shipping Updates</label
+            >
+          <label
+            ><input
+              name="prefer"
+              value="forum"
+              type="checkbox"
+              class="input-checkbox"
+            />Blog</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="additional-courses"
+              type="checkbox"
+              class="input-checkbox"
+            />Additional Search Features</label
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Any additional feedback or requests?</p>
+          <textarea
+            id="comments"
+            class="input-textarea"
+            name="comment"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div> 
+    </body>
+</html>
