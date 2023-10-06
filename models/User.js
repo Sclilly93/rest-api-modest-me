@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true },
   purchaseHistory: [{ type: String }],
   otherInfo: { type: String }
+   // Add any other user information fields as needed
 });
 
 module.exports = mongoose.model('User', userSchema);
+
+

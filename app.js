@@ -22,6 +22,8 @@ app.use(express.static('public'));
 
 // Define routes
 app.use('/api', require('./routes/apiRoutes'));
+app.use('/api', require('./routes/userRoutes'));
+app.use('/api', require('./routes/purchaseRoutes'));
 
 // Use "body-parser" for processing data transmitted in varying formats including URL-encoded and JSON.
 // This sets up our middleware

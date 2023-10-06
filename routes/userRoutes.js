@@ -8,6 +8,28 @@
 const express = require('express');
 const router = express.Router();
 const UserMeasurement = require('../models/userMeasurement'); // Require the schema
+const User = require('../models/User')
+
+// Define routes for creating users and recording purchases using ping method
+router.post('/user', async (req, res) => {
+  try {
+    const { username, email } = req.body;
+
+    const user = new User({
+      username,
+      email,
+      // Add any other user information fields as needed
+    });
+
+    await user.save();
+
+    res.status(201).json({ message: 'User information saved successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+module.exports = router;
 
 // Define a route that handles POST requests to '/submit-measurements'endpoint
 // After POST request reaches endpoint, the function (req, res) will be executed 

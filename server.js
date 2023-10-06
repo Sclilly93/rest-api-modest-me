@@ -13,10 +13,6 @@ app.use(express.urlencoded({extended: false}))
 app.get('/', (req, res) => {
     res.send('Hello NODE API')
 })
-// Define a sample blog route
-app.get('/blog', (req, res) => {
-    res.send('Hello Blog, My name is Devtamin')
-})
 // Retrieve all products
 app.get('/products', async(req, res) => {
     try {
