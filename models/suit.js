@@ -14,5 +14,5 @@ const suitSchema = new mongoose.Schema({
 
 // Create a Suit model using the schema
 const Suit = mongoose.model('Suit', suitSchema);
-
 module.exports = Suit;
+

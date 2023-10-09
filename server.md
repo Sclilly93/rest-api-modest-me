@@ -1,3 +1,5 @@
+Sample of Main File renamed from Server.js
+
 // Import necessary modules and models
 const express = require('express')
 const mongoose = require('mongoose')
@@ -78,8 +80,7 @@ app.delete('/products/:id', async(req, res) =>{
 
 // Connect to MongoDB
 mongoose.set("strictQuery", false)
-mongoose.
-connect('mongodb+srv://admin:12345678Admin@devtaminapi.zpncstm.mongodb.net/Node-API?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Admin:ModestmeAPI93@api.dmomedi.mongodb.net/Node-API')
 .then(() => {
     console.log('connected to MongoDB')
      // Start the server
@@ -89,3 +90,4 @@ connect('mongodb+srv://admin:12345678Admin@devtaminapi.zpncstm.mongodb.net/Node-
 }).catch((error) => {
     console.log(error)
 })
+

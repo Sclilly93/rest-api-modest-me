@@ -11,8 +11,6 @@ const bodyParser = require('body-parser'); // Require body-parser
 // Create a new web application using the "express" tool and call it "app".
 const app = express();
 
-// Connect our web application to a MongoDB local database located on our own computer
-mongoose.connect('mongodb://localhost:27017/clothing_store', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Middleware for parsing JSON
 app.use(express.json());
@@ -52,12 +50,21 @@ app.use(parseRequestBody());
 app.use(bodyParser.json());
 
 // Other middleware and routes...
+app.post('/suitOptions', (req, res) => {
+    console.log(request.body);
+})
 
+// Start the web server and stand by to receive incoming requests on port 3000.
 
-
-// // Start the web server and stand by to receive incoming requests on port 3000.
-app.listen(3000, () => {
-  console.log('Node API app is running on http://localhost:3000');
-});
-
-
+// Connect our web application to a MongoDB local database located on our own computer
+mongoose.set("strictQuery", false)
+mongoose.connect('mongodb+srv://Admin:ModestmeAPI93@api.dmomedi.mongodb.net/Node-API')
+.then(() => {
+  console.log('Connected to MongoDB')
+   // Start the server
+  app.listen(3000, ()=> {
+      console.log(`Node API app is running on http://localhost:3000`)
+  });
+}).catch((error) => {
+  console.log(error)
+})

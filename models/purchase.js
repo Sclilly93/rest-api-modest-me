@@ -6,4 +6,5 @@ const purchaseSchema = new mongoose.Schema({
   // Add any other purchase information fields as needed
 });
 
+const Purchase = mongoose.model('Purchase', purchaseSchema);
 module.exports = mongoose.model('Purchase', purchaseSchema);
