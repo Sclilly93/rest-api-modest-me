@@ -33,11 +33,14 @@ app.use(bodyParser.json());
 const userRoutes = require('./routes/userRoutes');
 // const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
 const suitRoutes = require('./routes/suitRoutes');
+const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
+
 
 // Configure the web application to utilize the specified routes when processing requests directed to user or suit routes.
 app.use('/user', userRoutes); 
 app.use('/suits', suitRoutes);
-// this route is still causing issues app.use('/suits', suitOptionsRoutes);
+// this route is still causing issues 
+app.use('/suits', suitOptionsRoutes);
 
 
 

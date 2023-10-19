@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Purchase = require('../models/Purchase');
+const Purchase = require('../models/purchase');
 
 // These routes will handle incoming requests to save user information and purchases.
 
