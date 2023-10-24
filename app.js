@@ -11,6 +11,10 @@ const bodyParser = require('body-parser'); // Require body-parser
 // Create a new web application using the "express" tool and call it "app".
 const app = express();
 
+// Import input routes from a separate file in "routes" directory.
+const userRoutes = require('./routes/userRoutes');
+const suitRoutes = require('./routes/suitRoutes');
+const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
 
 // Middleware for parsing JSON
 app.use(express.json());
@@ -29,17 +33,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-// Import input routes from a separate file in "routes" directory.
-const userRoutes = require('./routes/userRoutes');
-// const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
-const suitRoutes = require('./routes/suitRoutes');
-const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
-
-
 // Configure the web application to utilize the specified routes when processing requests directed to user or suit routes.
 app.use('/user', userRoutes); 
 app.use('/suits', suitRoutes);
-// this route is still causing issues 
 app.use('/suits', suitOptionsRoutes);
 
 

@@ -16,7 +16,7 @@ html {
       flex: 1;
       background-color: #f0f0f0;
       padding: 10px;
-      display: none; /* Initially hide the sidebar */
+      display: outside; /* Initially hide the sidebar */
   }
   
   #filterButton {
