@@ -1,16 +1,86 @@
 // This file handles routes and interactions with the related models
 const express = require('express');
 const router = express.Router();
-
 // Import the Mongoose model for SuitOptions
-const SuitOption = require('../models/suitOptions');
+const SuitOptions = require('../models/suitOptions');
 
 // Add routes and handlers for suit options here
+// Get all suit options
+router.get('/', async (req, res) => {
+  try {
+    const suitOptions = await SuitOptions.find();
+    res.status(200).json(suitOptions);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Get one suit option by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const suitOption = await SuitOptions.findById(req.params.id);
+    if (!suitOption) {
+      return res.status(404).json({ message: 'Suit option not found' });
+    }
+    res.status(200).json(suitOption);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Create a new suit option
+router.post('/', async (req, res) => {
+  try {
+    const newSuitOption = new SuitOptions({
+      title: req.body.title,
+      color_options: req.body.color_options
+    });
+    const savedSuitOption = await newSuitOption.save();
+    res.status(201).json(savedSuitOption);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Update a suit option by ID
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedSuitOption = await SuitOptions.findByIdAndUpdate(
+      req.params.id,
+      {
+        title: req.body.title,
+        color_options: req.body.color_options
+      },
+      { new: true }
+    );
+    if (!updatedSuitOption) {
+      return res.status(404).json({ message: 'Suit option not found' });
+    }
+    res.status(200).json(updatedSuitOption);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Delete a suit option by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedSuitOption = await SuitOptions.findByIdAndDelete(req.params.id);
+    if (!deletedSuitOption) {
+      return res.status(404).json({ message: 'Suit option not found' });
+    }
+    res.status(200).json(deletedSuitOption);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 module.exports = router;
 
 
+
 // Create a new instances of the SuitOption model with specific data
-const newSuitOption1 = new SuitOption({
+const newSuitOption1 = new SuitOptions({
   title: "Wool Blend 30",
   color_options: [
     "4008-01", "4008-02", "4008-03", "4008-04", "4008-05", 
@@ -19,7 +89,7 @@ const newSuitOption1 = new SuitOption({
   ]
 });
 
-const newSuitOption2 = new SuitOption({
+const newSuitOption2 = new SuitOptions({
   title: "Wool Blend 30",
   color_options: [
     "4008-17", "4008-18", "4008-19", "4008-20", "4008-21", 
@@ -28,7 +98,7 @@ const newSuitOption2 = new SuitOption({
   ]
 });   
 
-const newSuitOption3 = new SuitOption({
+const newSuitOption3 = new SuitOptions({
   title: "Wool Blend 30",
   color_options: [
     "4008-33", "4008-34", "4008-35", "4008-36", "4008-37", 
@@ -37,7 +107,7 @@ const newSuitOption3 = new SuitOption({
   ]
 });
 
-const newSuitOption4 = new SuitOption({
+const newSuitOption4 = new SuitOptions({
   title: "Wool Blend 30",
   color_options: [
     "4008-49", "4008-50", "4008-51", "4008-52", 
@@ -46,7 +116,7 @@ const newSuitOption4 = new SuitOption({
   ]
 });
 
-const newSuitOption5 = new SuitOption({
+const newSuitOption5 = new SuitOptions({
   title: "Classic",
   color_options: [
     "2199097", "2199099", "2199098", "2199001", "2199002", 
@@ -54,7 +124,7 @@ const newSuitOption5 = new SuitOption({
   ]
 });
 
-const newSuitOption6 = new SuitOption({
+const newSuitOption6 = new SuitOptions({
   title: "Classic",
   color_options: [
     "2199065", "2199067", "2199071", "2199066", "2199074", 
@@ -62,7 +132,7 @@ const newSuitOption6 = new SuitOption({
   ]
 });
 
-const newSuitOption7 = new SuitOption({
+const newSuitOption7 = new SuitOptions({
   title: "Classic",
   color_options: [
     "2199070", "2199069", "2199068", "2199055", "2199064", 
@@ -70,7 +140,7 @@ const newSuitOption7 = new SuitOption({
   ]
 });  
   
-const newSuitOption8 = new SuitOption({
+const newSuitOption8 = new SuitOptions({
   title: "Classic",
   color_options: [
     "2199031", "2199032", "2199033", "2199034", "2199092", 
@@ -78,14 +148,15 @@ const newSuitOption8 = new SuitOption({
   ]
 }); 
 
-const newSuitOption9 = new SuitOption({
+const newSuitOption9 = new SuitOptions({
   title: "Classic",
   color_options: [
     "2199075", "2199077", "2199078", "2199076", "2199047", 
-    "2199046", "2199049", "2199054", "2199051"]
+    "2199046", "2199049", "2199054", "2199051"
+    ]
   });  
 
-const newSuitOption10 = new SuitOption({
+const newSuitOption10 = new SuitOptions({
   title: "Classic",
   color_options: [
     "2199050", "2199048", "2199053", "2199052", "2199044", 
@@ -93,33 +164,28 @@ const newSuitOption10 = new SuitOption({
   ]
 });   
   
-// Save the new SuitOption document to the MongoDB database
-// Array containing the suit options you want to save.
-const suitOptionsToSave = [
-  newSuitOption1,
-  newSuitOption2,
-  newSuitOption3,
-  newSuitOption4,
-  newSuitOption5,
-  newSuitOption6,
-  newSuitOption7,
-  newSuitOption8,
-  newSuitOption9,
-  newSuitOption10,
-  // Add other newSuitOption objects similarly
-];
+// Create a new suit option
+router.post('/', async (req, res) => {
+  try {
+    const existingOption = await SuitOptions.findOne({ title: req.body.title });
 
-  
-// "Promise all" returns an array of results or throws an error if any of the promises are rejected.
-// "Map" iterates through each suit option and calls the save method on each one. 
-// This returns an array of promises.
-// "Then" goes through the results and log a success message for each saved suit option.
-  Promise.all(suitOptionsToSave.map(option => option.save({ timeout: 20000 })))
-    .then(results => {
-      results.forEach(result => {
-        console.log('Suit option saved successfully:', result);
+    if (existingOption) {
+      // Update the existing option
+      existingOption.color_options = req.body.color_options;
+      const updatedOption = await existingOption.save();
+      res.status(200).json(updatedOption);
+    } else {
+      // Create a new option
+      const newSuitOption = new SuitOptions({
+        title: req.body.title,
+        color_options: req.body.color_options
       });
-    })
-    .catch(error => {
-      console.error(error);
-    });
+      const savedSuitOption = await newSuitOption.save();
+      res.status(201).json(savedSuitOption);
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+

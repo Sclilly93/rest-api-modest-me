@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const suitOptionsSchema = new mongoose.Schema({
-  title: String,
+  title: { type: String, unique: true },
   color_options: [String]
 });
 const suitOptions = mongoose.model('SuitOptions', suitOptionsSchema);

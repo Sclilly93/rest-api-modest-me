@@ -19,3 +19,36 @@ const logger = require('../middleware/loggingMiddleware');
 * Removed unnecessary quotes around properties names in object literals. 
 * Updated suitOptions array to include the instances already created.
 * The code now reads more clearly and follows a consistent style
+
+
+
+//// Save the new SuitOption document to the MongoDB database
+// Array containing the suit options you want to save.
+const suitOptionsToSave = [
+  newSuitOption1,
+  newSuitOption2,
+  newSuitOption3,
+  newSuitOption4,
+  newSuitOption5,
+  newSuitOption6,
+  newSuitOption7,
+  newSuitOption8,
+  newSuitOption9,
+  newSuitOption10,
+  // Add other newSuitOption objects similarly
+];
+
+  
+// "Promise all" returns an array of results or throws an error if any of the promises are rejected.
+// "Map" iterates through each suit option and calls the save method on each one. 
+// This returns an array of promises.
+// "Then" goes through the results and log a success message for each saved suit option.
+  Promise.all(suitOptionsToSave.map(option => option.save({ timeout: 20000 })))
+    .then(results => {
+      results.forEach(result => {
+        console.log('Suit option saved successfully:', result);
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
