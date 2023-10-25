@@ -1,1 +1,1 @@
-GET http://localhost:3000/
+GET http://localhost:3000/suitOptions/65394dec18f424d470ca5f43
