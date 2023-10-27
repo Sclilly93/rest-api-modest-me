@@ -8,6 +8,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const { validateMeasurements } = require('./middleware/measurementMiddleware');
+const UserMeasurement = require('./models/userMeasurement');
+
 
 const app = express();
 
@@ -22,9 +25,9 @@ mongoose.connect('mongodb+srv://Admin:ModestmeAPI93@api.dmomedi.mongodb.net/Node
   .then(() => {
     console.log('Connected to MongoDB');
     // Start the server
-    app.listen(3000, () => {
-      console.log(`Node API app is running on http://localhost:3000`);
-    });
+    app.listen(4000, () => {
+      console.log(`Node API app is running on http://localhost:4000`);
+    });    
   })
   .catch((error) => {
     console.log(error);
@@ -34,6 +37,7 @@ mongoose.connect('mongodb+srv://Admin:ModestmeAPI93@api.dmomedi.mongodb.net/Node
 const userRoutes = require('./routes/userRoutes');
 const suitRoutes = require('./routes/suitRoutes');
 const suitOptionsRoutes = require('./routes/suitOptionsRoutes');
+const submitMeasurementsRoutes = require('./routes/submitMeasurementsRoutes');
 
 // Use routes
 app.use('/api', require('./routes/apiRoutes'));
@@ -42,11 +46,13 @@ app.use('/api', require('./routes/purchaseRoutes'));
 app.use('/user', userRoutes);
 app.use('/suits', suitRoutes);
 app.use('/suitOptions', suitOptionsRoutes);
+app.use('/submitMeasurements', submitMeasurementsRoutes);
 
-// Define root route
+// Define root routes
 app.get('/', (req, res) => {
   res.send('Hello NODE API');
 });
+
 
 // Retrieve all suit options
 app.get('/suitOptions', async (req, res) => {
@@ -68,6 +74,28 @@ app.get('/suitOptions/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+// Handle POST request to /submitMeasurements
+app.post('/submitMeasurements', (req, res) => {
+  const measurements = req.body;
+
+  // Create a new UserMeasurement document
+  const measurementEntry = new UserMeasurement(measurements);
+
+  // Save the document to the database
+  measurementEntry.save()
+    .then(() => {
+      res.send('Measurements saved successfully'); // Send a response to the client
+    })
+    .catch(error => {
+      res.status(500).send('Error saving measurements'); // Handle errors
+    });
+});
+
+
+
+
+////
 
 // Create a new suit option
 app.post('/suitOptions', async (req, res) => {

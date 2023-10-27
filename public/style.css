@@ -28,6 +28,9 @@ html {
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
 
+
+
+
 :root {
   --color-white: #f3f3f3;
   --color-darkblue: #1b1b32;
@@ -206,3 +209,37 @@ form {
   border-radius: 2px;
   cursor: pointer;
 }
+
+/* Styling for navigation bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b99c82;
+  padding: 10px 20px;
+}
+
+nav .modest-m-logo {
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+  height: 30px;
+}
+
+nav button, nav a {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+nav button:focus, nav a:focus {
+  outline: none;
+}
+
+

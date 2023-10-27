@@ -52,3 +52,130 @@ const suitOptionsToSave = [
     .catch(error => {
       console.error(error);
     });
+
+  * Optional Survey form!
+
+     <div class="form-group">
+          <p>Which option best describes your needs for a custom suit?</p>
+          <select id="dropdown" name="role" class="form-control" required>
+            <option disabled selected value>Select your needs</option>
+            <option value="student">Wedding</option>
+            <option value="job">Bussiness</option>
+            <option value="fashion">Fashion</option>
+            <option value="preferNo">Prefer not to say</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>Would you recommend Modest Me?</p>
+          <label>
+            <input
+              name="user-recommend"
+              value="absolutely"
+              type="radio"
+              class="input-radio"
+              checked
+            />Absolutely</label
+          >
+          <label>
+            <input
+              name="user-recommend"
+              value="maybe"
+              type="radio"
+              class="input-radio"
+            />Maybe</label
+          >
+
+          <label
+            ><input
+              name="user-recommend"
+              value="not-currently"
+              type="radio"
+              class="input-radio"
+            />Not currently</label
+          >
+        </div>
+
+        <div class="form-group">
+          <p>What is your favorite feature or highlight of Modest Me?</p>
+          <select id="favorite-feature" name="favoriteFeature" class="form-control" required>
+            <option disabled selected value>Select an option</option>
+            <option value="designs">Designs</option>
+            <option value="featured-clothes">Featured Clothes</option>
+            <option value="diversity">Diversity</option>
+            <option value="new-collections">New Collections</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>
+            What future updates intrest you?
+            <span class="clue">(Check any that apply)</span>
+          </p>
+
+          <label
+            ><input
+              name="prefer"
+              value="community-projects"
+              type="checkbox"
+              class="input-checkbox"
+            />Upcoming Categories</label
+          >
+          <label>
+            <input
+              name="prefer"
+              value="upcoming-reviews"
+              type="checkbox"
+              class="input-checkbox"
+            />Customer Reviews</label>
+          <label
+            ><input
+              name="prefer"
+              value="concept-art"
+              type="checkbox"
+              class="input-checkbox"
+            />Unisex Clothing</label>
+          <label
+            ><input
+              name="prefer"
+              value="challenges"
+              type="checkbox"
+              class="input-checkbox"
+            />Measurements Sidebar</label
+            >
+          <label
+            ><input
+              name="prefer"
+              value="video-content"
+              type="checkbox"
+              class="input-checkbox"
+            />Shipping Updates</label
+            >
+          <label
+            ><input
+              name="prefer"
+              value="forum"
+              type="checkbox"
+              class="input-checkbox"
+            />Blog</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="additional-courses"
+              type="checkbox"
+              class="input-checkbox"
+            />Additional Search Features</label
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Any additional feedback or requests?</p>
+          <textarea
+            id="comments"
+            class="input-textarea"
+            name="comment"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>

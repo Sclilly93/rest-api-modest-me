@@ -1,22 +1,33 @@
-//README: This file for defining the Mongoose schema
-
-// Load a tool called "mongoose" that helps us work with a database
+// userMeasurement.js : This file for defining the Mongoose schema
 const mongoose = require('mongoose');
 
-/*
- * Defines a blueprint for how we'll save measurements in the database.
- * The blueprint includes categories like "height", "weight", etc.
- */
 const measurementSchema = new mongoose.Schema({
-  height: Number,
-  weight: Number,
-  shoeSize: Number,
-  watchHand: String,
-  hairColor: String,
-  eyeColor: String,
-  jeanSize: Number
+  name: String,
+  email: String,
+  neck: Number,
+  chest: Number,
+  shoulder: Number,
+  rightSleeve: Number,
+  leftSleeve: Number,
+  bicep: Number,
+  wrist: Number,
+  waist: Number,
+  hip: Number,
+  frontJacket: Number,
+  frontChest: Number,
+  backWidth: Number,
+  shoulderWidthRight: Number,
+  shoulderWidthLeft: Number,
+  fullBackLength: Number,
+  halfBackLength: Number,
+  trouserWaist: Number,
+  trouserOutseam: Number,
+  trouserInseam: Number,
+  crotch: Number,
+  thigh: Number,
+  knee: Number,
+  rightFullSleeve: Number,
+  leftFullSleeve: Number,
 });
 
-// Export this blueprint so we can use it elsewhere in our code.
-// We'll call it "UserMeasurement" and it follows the blueprint we just defined.
 module.exports = mongoose.model('UserMeasurement', measurementSchema);
