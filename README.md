@@ -22,7 +22,10 @@ const logger = require('../middleware/loggingMiddleware');
 
 
 
-//// Save the new SuitOption document to the MongoDB database
+
+# Optional features for future updates
+
+# Save the new SuitOption document to the MongoDB database
 // Array containing the suit options you want to save.
 const suitOptionsToSave = [
   newSuitOption1,
@@ -53,7 +56,7 @@ const suitOptionsToSave = [
       console.error(error);
     });
 
-  * Optional Survey form!
+# Optional Survey form!
 
      <div class="form-group">
           <p>Which option best describes your needs for a custom suit?</p>
@@ -179,3 +182,93 @@ const suitOptionsToSave = [
             placeholder="Enter your comment here..."
           ></textarea>
         </div>
+
+
+
+
+# This sends out email to factory for completed user measurements survey.  
+const nodemailer = require('nodemailer');
+
+// Create a transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'your-email@gmail.com',
+    pass: 'your-email-password'
+  }
+});
+
+app.post('/submitMeasurements', (req, res) => {
+  // Your existing code for extracting measurements from req.body...
+
+  // Save measurements to the database
+  const userMeasurements = new UserMeasurement(measurements);
+  userMeasurements.save((err, data) => {
+    if (err) {
+      // Handle error
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+
+    // Send confirmation to the client
+    res.send('Measurements submitted successfully!');
+
+    // Send email to manufacturer
+    const mailOptions = {
+      from: 'your-email@gmail.com',
+      to: 'manufacturer-email@example.com',
+      subject: 'New Measurements Submitted',
+      text: `New measurements submitted:\n${JSON.stringify(measurements, null, 2)}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  });
+});
+
+
+module.exports = router;
+
+// This save's the report after sending the email:
+
+const Report = require('../models/reportModel');
+
+// ...
+
+app.post('/submitMeasurements', (req, res) => {
+  // Your existing code for extracting measurements from req.body...
+
+  // Save measurements to the database
+  const userMeasurements = new UserMeasurement(measurements);
+  userMeasurements.save((err, data) => {
+    if (err) {
+      // Handle error
+      console.error(err);
+      return res.status(500).send('Internal Server Error');
+    }
+
+    // Send confirmation to the client
+    res.send('Measurements submitted successfully!');
+
+    // Send email to manufacturer (as shown in previous step)
+
+    // Save report to database
+    const report = new Report({
+      userEmail: measurements.email,
+      measurements: measurements
+    });
+
+    report.save((err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Report saved to database:', data);
+      }
+    });
+  });
+});

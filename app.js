@@ -7,9 +7,9 @@
 // Import necessary modules and models
 const express = require('express');
 const mongoose = require('mongoose');
+const axios = require('axios');
 const bodyParser = require('body-parser');
 const { validateMeasurements } = require('./middleware/measurementMiddleware');
-const UserMeasurement = require('./models/userMeasurement');
 
 
 const app = express();
@@ -33,6 +33,10 @@ mongoose.connect('mongodb+srv://Admin:ModestmeAPI93@api.dmomedi.mongodb.net/Node
     console.log(error);
   });
 
+// Import models
+const UserMeasurement = require('./models/userMeasurement'); 
+
+
 // Import routes
 const userRoutes = require('./routes/userRoutes');
 const suitRoutes = require('./routes/suitRoutes');
@@ -48,11 +52,35 @@ app.use('/suits', suitRoutes);
 app.use('/suitOptions', suitOptionsRoutes);
 app.use('/submitMeasurements', submitMeasurementsRoutes);
 
+
+
+// Route to receive data from WordPress
+app.post('/receiveDataFromWordPress', async (req, res) => {
+  const { name, email, address, city, state, zip, phoneNumber, 
+  neck, chest, shoulder, rightSleeve, leftSleeve, bicep, wrist, 
+  waist, hip, frontJacket, frontChest, backWidth, shoulderWidthRight, 
+  shoulderWidthLeft, fullBackLength, halfBackLength, trouserWaist, 
+  trouserOutseam, trouserInseam, crotch, thigh, knee, rightFullSleeve, 
+  leftFullSleeve, yourMessage } = req.body;
+
+  // Create a new document in MongoDB
+  const userMeasurement = new UserMeasurement({
+    name, email, address, city, state, zip, phoneNumber, neck, chest, 
+    shoulder, rightSleeve, leftSleeve, bicep, wrist, waist, hip, frontJacket, 
+    frontChest, backWidth, shoulderWidthRight, shoulderWidthLeft, fullBackLength, 
+    halfBackLength, trouserWaist, trouserOutseam, trouserInseam, crotch, thigh, knee, 
+    rightFullSleeve, leftFullSleeve, yourMessage
+  });
+
+  await userMeasurement.save();
+
+  res.send('Data saved to MongoDB');
+});
+
 // Define root routes
 app.get('/', (req, res) => {
   res.send('Hello NODE API');
 });
-
 
 // Retrieve all suit options
 app.get('/suitOptions', async (req, res) => {
@@ -75,6 +103,7 @@ app.get('/suitOptions/:id', async (req, res) => {
   }
 });
 
+
 // Handle POST request to /submitMeasurements
 app.post('/submitMeasurements', (req, res) => {
   const measurements = req.body;
@@ -91,7 +120,6 @@ app.post('/submitMeasurements', (req, res) => {
       res.status(500).send('Error saving measurements'); // Handle errors
     });
 });
-
 
 
 
@@ -135,3 +163,4 @@ app.delete('/suitOptions/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
